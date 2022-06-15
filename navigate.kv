@@ -1,0 +1,124 @@
+#:import ScrollEffect  kivy.effects.scroll.ScrollEffect
+<Navigation>:
+    name: "main" 
+    #:import get_color_from_hex kivy.utils.get_color_from_hex
+    MDBoxLayout:
+        orientation: "vertical"
+        #MDTopAppBar:
+            #elevation: 10
+            #pos_hint: {"top": 1}
+            #md_bg_color: get_color_from_hex("#4A3455")
+        MDBottomNavigation:
+            panel_color: get_color_from_hex("#A478C6")
+            selected_color_background: get_color_from_hex("#A478C6")
+            text_color_active: 1,1,1,0.8
+            text_color_normal: get_color_from_hex("#ffffff")
+            
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Home'
+                
+                font_size: 20
+                icon: 'home'
+                MDBanner:
+                    id: banner
+                    over_widget: scroll
+                MDFloatLayout:
+                    md_bg_color: get_color_from_hex("#e9e5df")
+                    #orientation: "vertical"
+                    size: root.width, root.height
+                    BoxLayout:
+                        pos_hint:{"center_x": .5, "center_y": .5}
+                        Image:
+                            id: gif
+                            source: "./resources/heart.gif"
+                            allow_stretch: True
+                            anim_delay: 0.05
+                            mipmap: True
+                            keep_ratio: True
+                            
+                            width: self.parent.width
+                            height: self.parent.width/self.image_ratio
+                    
+                            
+                    #ScrollView:
+                        #id: scroll
+                        #MDList:
+                            #id: container1  
+                        
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Random Food Store'
+                font_size: 20
+                icon: 'food'
+                MDBanner:
+                    id: banner
+                    over_widget: scroll
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size: root.width, root.height
+                    padding : 10
+                    md_bg_color: get_color_from_hex("#ffffff")
+                    MDRoundFlatIconButton:
+                        id: button
+                        icon: "food-fork-drink"
+                        theme_icon_color: "Custom"
+                        md_bg_color: get_color_from_hex("#A478C6")
+                        icon_color: get_color_from_hex("#ffffff")
+                        text_color: get_color_from_hex("#ffffff")
+                        line_color: (255, 170, 233, 0)
+                        text: "Chọn Quận"
+                        font_size: 20
+                        font_name: "resources/Roboto-Bold"
+                        text_size: 20
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        on_release: app.bottom_sheet()
+                    ScrollView:
+                        id: scroll
+                        effect_cls: ScrollEffect
+                        MDGridLayout:
+                            id: container2
+                            spacing: "10dp"
+                            padding: "10dp"
+                            cols: 2
+                            size_hint_y: None
+                            height: self.minimum_height
+                            row_default_height: (self.width - self.cols*self.spacing[0]) / self.cols
+                            row_force_default: True
+                            col_default_width: (self.width - self.cols*self.spacing[0]) / self.cols
+                            col_force_default: True
+    
+
+<MD3Card>:
+    padding: "5dp"
+    size_hint_y: None
+    size: "300dp", "150dp"
+    ripple_behavior: True
+    style: "elevated"
+    on_release: app.run_url(root.url)
+    MDRelativeLayout:
+        AsyncImage:
+            source: root.source
+            keep_ratio: True
+            size_hint_y: 1
+            size_hint_x: 1
+        MDLabel:
+            id: label
+            text: root.text
+            adaptive_size: True
+            color: .2, .2, .2, .8
+<MD4Card>:
+    radius: 24
+    box_radius: [0, 0, 24, 24]
+    box_color: 0.64, 0.47, 0.77, 1
+    source: root.source
+    pos_hint: {"center_x": .5, "center_y": .5}
+    #overlap: False
+    on_touch_down: app.run_url(root.url) if self.collide_point(*args[1].pos) else False
+    MDLabel:
+        text: root.text
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex("#A478C6")
+        bold: True
+        color: 1, 1, 1, 1
+

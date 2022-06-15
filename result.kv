@@ -1,0 +1,204 @@
+<ResultScreen>:
+    #:import ScrollEffect  kivy.effects.scroll.ScrollEffect
+    #:import get_color_from_hex kivy.utils.get_color_from_hex
+    name: "random"
+    MDRelativeLayout:
+        pos_hint: {"top":1}
+        size_hint_y: 0.65
+        FitImage:
+            id: im_sync_1
+            pos_hint: {"top": 1}
+        MDTopAppBar:
+            id: toolbar
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: app.Continue()]]
+            right_action_items: [["redo-variant", lambda x: app.ReRandom()], ["web", lambda x: app.GoToNext()]]
+            specific_text_color: 0.29,0.2,0.33,1
+            md_bg_color: get_color_from_hex("#ffffff")
+    MD1Card:
+        id: card
+        size_hint_y: 0.45
+<MD1Card>:
+    orientation: "vertical"
+    padding: "8dp"
+    radius: [dp(20), dp(20), 0, 0]
+    type: "outlined"
+    md_bg_color: get_color_from_hex("#ffffff")
+
+    MDRelativeLayout:
+        MDIconButton:
+            icon: "heart"
+            theme_icon_color: "Custom"
+            icon_color: 1, 0, 0, 1
+            pos_hint: {'right': 1, 'top':1.05}
+        MDLabel:
+            id: label1
+            theme_text_color: "Custom"
+            text_color: get_color_from_hex("#4A3455")
+            size_hint: .8,.2
+            pos_hint: {'x': 0, 'top':1}
+            font_style: "H5"
+            bold: True
+        MDBoxLayout:
+            pos_hint: {'x': 0, 'y': 0.18}
+            size_hint_y: None
+            orientation: "vertical"
+            MDBoxLayout:
+                orientation: "horizontal"
+                MDIconButton:
+                    icon: "directions"
+                    theme_icon_color: "Custom"
+                    icon_color: get_color_from_hex("#4A3455")
+                    pos_hint: {'x': 0, 'center_y': .5}
+                MDLabel:
+                    id: address
+                    theme_text_color: "Custom"
+                    text_color: get_color_from_hex("#4A3455")
+                    font_style: "Caption"
+                    bold: True
+            MDBoxLayout:
+                orientation: "horizontal"
+                MDIconButton:
+                    icon: "clock"
+                    theme_icon_color: "Custom"
+                    icon_color: get_color_from_hex("#4A3455")
+                    pos_hint: {'x': 0, 'center_y': .5}
+                MDLabel:
+                    id: clock
+                    theme_text_color: "Custom"
+                    text_color: get_color_from_hex("#4A3455")
+                    font_style: "Caption"
+                    bold: True
+            MDGridLayout:
+                rows: 1
+                MDFloatLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.02, 0.69, 0.2, 1)
+                        Ellipse:
+                            size : self.width/2, self.height
+                            pos : self.center_x - self.width/4 , self.center_y - self.height/2                    
+                            angle_start: 0
+                            angle_end: 360
+                    Button:
+                        id: overallscore
+                        size_hint:None,None
+                        size : self.parent.width/2, self.parent.height
+                        pos : self.parent.center_x - self.parent.width/4 , self.parent.center_y - self.parent.height/2
+                        color: 0,0,0,1
+                        background_color: 0,0,0,0
+                MDGridLayout:
+                    rows: 2
+                    padding: "5dp"
+                    size_hint_x: None
+                    width: "40dp"
+                    MDLabel:
+                        id: score1
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                    MDLabel:
+                        id: label
+                        text: "Vị trí"
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                MDGridLayout:
+                    rows: 2
+                    padding: "5dp"
+                    MDLabel:
+                        id: score2
+                        text_size: 60, None
+                        size_hint_x: None
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                    MDLabel:
+                        id: label
+                        text: "Chất lượng"
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                MDGridLayout:
+                    rows: 2
+                    padding: "5dp"
+                    MDLabel:
+                        id: score3
+                        text_size: 60, None
+                        size_hint_x: None
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                    MDLabel:
+                        id: label
+                        text: "Không gian"
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                MDGridLayout:
+                    rows: 2
+                    padding: "5dp"
+                    MDLabel:
+                        text_size: 70, None
+                        size_hint_x: None
+                        id: score4
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                    MDLabel:
+                        id: label
+                        text: "Phục vụ"
+                        theme_text_color: "Custom"
+                        text_color: get_color_from_hex("#4A3455")
+                        font_style: "Caption"
+                        bold: True
+                
+    ScrollView:
+        do_scroll_x: True
+        do_scroll_y: False
+        id: scroll
+        #effect_cls: ScrollEffect    
+        MDGridLayout:
+            id: container3
+            rows: 1
+            spacing: "10dp"
+            size_hint_x: None
+            width: self.minimum_width
+            
+                
+            
+<CircleLabel>:
+    canvas:
+        Color:
+            rgba: (0.02, 0.69, 0.2, 1)
+        Ellipse:
+            size : self.width/2, self.height
+            pos : self.center_x - self.width/4 , self.center_y - self.height/2                    
+            angle_start: 0
+            angle_end: 360
+    Button:
+        id: overallscore
+        size_hint:None,None
+        size : self.parent.width/2, self.parent.height
+        pos : self.parent.center_x - self.parent.width/4 , self.parent.center_y - self.parent.height/2
+        background_color: 0,0,0,0
+        on_release: print('Clicked Button')
+
+<MD2Card>:
+    padding: "5dp"
+    size_hint_x: None
+    style: "elevated"
+    md_bg_color: get_color_from_hex("#ffffff")
+    AsyncImage:
+        source: root.img_url
+        keep_ratio: True
+        size_hint_y: 1
+        size_hint_x: 1

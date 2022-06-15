@@ -1,0 +1,57 @@
+<Random>:
+    #:import get_color_from_hex kivy.utils.get_color_from_hex
+    name: "random"
+    BoxLayout:
+        orientation: "vertical"
+        height: root.height
+        width: root.width
+        MDTopAppBar:
+            id: toolbar
+            elevation: 10
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: app.callback()]]
+            right_action_items: [["redo-variant", lambda x: app.callback()]]
+            specific_text_color: 1,0,1,1
+            md_bg_color: get_color_from_hex("#ffeea9")
+        
+        MDSmartTile:
+        radius: 24
+        box_radius: [0, 0, 24, 24]
+        box_color: 1, 1, 1, .2
+        source: "https://images.foody.vn/res/g1/595/prof/s640x400/foody-upload-api-foody-mobile-10-jpg-180508140146.jpg"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        size_hint: None, None
+        size: "320dp", "320dp"
+
+        MDIconButton:
+            icon: "heart-outline"
+            theme_icon_color: "Custom"
+            icon_color: 1, 0, 0, 1
+            pos_hint: {"center_y": .5}
+            on_release: self.icon = "heart" if self.icon == "heart-outline" else "heart-outline"
+
+        MDLabel:
+            text: "Julia and Julie"
+            bold: True
+            color: 1, 1, 1, 1
+
+        AsyncImage:
+            id: im_sync_1
+            source: "https://images.foody.vn/res/g103/1020115/prof/s750x400/foody-upload-api-foody-mobile-hmzz-200421103141.jpg"
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDLabel:
+            id: label1
+            text: "asdaasdsad"
+            text_color: get_color_from_hex("#d676ff")
+            font_name: "./resources/Roboto-Bold"
+            font_style: "H5"
+            halign: "center"
+            bold: True
+        MDBottomAppBar:
+            MDTopAppBar:
+                icon: "food"
+                type: "bottom"
+                mode: "center"
+                md_bg_bottom_color: get_color_from_hex("#ffeea9")
+                icon_color: get_color_from_hex("#d676ff")
+
