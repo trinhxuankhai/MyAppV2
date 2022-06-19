@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = KivyExample
+title = Meomeomeo
 
 # (str) Package name
-package.name = kivy_example
+package.name = myapp
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.kivy_example
+package.domain = org.test
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -37,17 +37,16 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,requests,beautifulsoup4,webbrowser,threading
-
+requirements = python3,kivy,https://github.com/kivymd/KivyMD/archive/master.zip,requests,beautifulsoup4,threaded,urllib3,chardet,idna,pillow
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+presplash.filename = presplash1.png
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/icon.png
+#icon.filename = icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -66,7 +65,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 2.0.0
+osx.kivy_version = 1.9.1
 
 #
 # Android specific
@@ -80,7 +79,7 @@ fullscreen = 0
 # red, blue, green, black, white, gray, cyan, magenta, yellow, lightgray,
 # darkgray, grey, lightgrey, darkgrey, aqua, fuchsia, lime, maroon, navy,
 # olive, purple, silver, teal.
-#android.presplash_color = #FFFFFF
+android.presplash_color = #e467f2
 
 # (string) Presplash animation using Lottie format.
 # see https://lottiefiles.com/ for examples and https://airbnb.design/lottie/
@@ -89,17 +88,17 @@ fullscreen = 0
 #android.presplash_lottie = "path/to/lottie/file.json"
 
 # (str) Adaptive icon of the application (used if Android API level is 26+ at runtime)
-#icon.adaptive_foreground.filename = %(source.dir)s/data/icon_fg.png
-#icon.adaptive_background.filename = %(source.dir)s/data/icon_bg.png
+icon.adaptive_foreground.filename = %(source.dir)s/icon.png
+#icon.adaptive_background.filename = %(source.dir)s/data/icon.png
 
 # (list) Permissions
-#android.permissions = INTERNET
+android.permissions = INTERNET
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-android.api = 30
+#android.api = 27
 
 # (int) Minimum API your APK / AAB will support.
 #android.minapi = 21
@@ -284,7 +283,7 @@ android.allow_backup = True
 # android.no-compile-pyo = True
 
 # (str) The format used to package the app for release mode (aab or apk).
-android.release_artifact = aab
+# android.release_artifact = aab
 
 #
 # Python for android (p4a) specific
@@ -298,7 +297,6 @@ android.release_artifact = aab
 
 # (str) python-for-android branch to use, defaults to master
 #p4a.branch = master
-p4a.branch = develop
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
