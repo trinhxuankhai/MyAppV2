@@ -56,7 +56,8 @@
     -->
     <application android:label="@string/app_name"
                  {% if debug %}android:debuggable="true"{% endif %}
-                 android:icon="@mipmap/icon"
+                 android:icon="@mipmap/ic_launcher"
+		 android:roundIcon="@mipmap/ic_launcher_round"
                  android:allowBackup="{{ args.allow_backup }}"
                  {% if args.backup_rules %}android:fullBackupContent="@xml/{{ args.backup_rules }}"{% endif %}
                  {{ args.extra_manifest_application_arguments }}
@@ -101,7 +102,8 @@
 
         {% if args.launcher %}
         <activity android:name="org.kivy.android.launcher.ProjectChooser"
-                  android:icon="@mipmap/icon"
+		  android:icon="@mipmap/ic_launcher"
+ 		  android:roundIcon="@mipmap/ic_launcher_round"
                   android:label="@string/app_name"
                   android:exported="true">
 

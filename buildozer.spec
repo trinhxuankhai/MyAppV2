@@ -88,7 +88,7 @@ android.presplash_color = #e467f2
 #android.presplash_lottie = "path/to/lottie/file.json"
 
 # (str) Adaptive icon of the application (used if Android API level is 26+ at runtime)
-icon.adaptive_foreground.filename = %(source.dir)s/icon.png
+#icon.adaptive_foreground.filename = %(source.dir)s/icon.png
 #icon.adaptive_background.filename = %(source.dir)s/data/icon.png
 
 # (list) Permissions

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Meomeomeo</string>
-    <string name="private_version">ef2f2ac8e9152889632fef62430b79eae026f145</string>
+    <string name="private_version">e8520f158086e47f16e27e5d15cedcbe8fb01e29</string>
     <string name="presplash_color">#e467f2</string>
     <string name="urlScheme">kivy</string>
 </resources>
